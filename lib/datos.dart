@@ -50,6 +50,7 @@ Map <String,dynamic> datos =
                 "texto":"¿Que planta es?",
                 "opciones":[
                   {
+                    "res":"Drosera",
                     "texto":"Drosera",
                     "opciones":[
                       {
@@ -115,6 +116,7 @@ Map <String,dynamic> datos =
                     ]
                   },
                   {
+                    "res":"Dionea",
                     "texto":"Dionea",
                     "opciones":[
                       {
@@ -191,6 +193,7 @@ Map <String,dynamic> datos =
                     ]
                   },
                   {
+                    "res":"Nepenthes",
                     "texto":"Nepenthes",
                     "opciones":[
                       {
