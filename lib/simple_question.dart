@@ -32,11 +32,8 @@ class _SimpleQuestionState extends State<SimpleQuestion>{
     _imageURL = widget.imageURL;*/
     motor = Motor();
 
-
     _imageURL = "01.png";
     _question = '¿' + motor.actual['texto'] + '?';
-
-
 
     //Map<String, dynamic> diosMio = motor.actual['opciones'];
     var diosMio = motor.actual['opciones'];
@@ -96,7 +93,7 @@ class _SimpleQuestionState extends State<SimpleQuestion>{
               child: Container(
                 child:Text(
                   _question,
-                  style: Theme.of(context).textTheme.headline4,
+                  style: Theme.of(context).textTheme.headline5,
                 ),
                 margin: EdgeInsets.all(5),
               )
@@ -122,26 +119,59 @@ class _SimpleQuestionState extends State<SimpleQuestion>{
                           () => Navigator.of(context).pop()
                         ).then( 
                           (index) {
-                            if(_selectedIndex == 0){
+                            motor.obtenerNuevoAcual(_dataList.elementAt(_selectedIndex));
+                            if(motor.queEs() == 'respuesta'){
+                              String diagnostico, causas = '', recomendaciones;
+                              diagnostico = motor.actual['texto'];
+
+                              var listCausas = motor.historial;
+
+                              for(int i = 0; i < listCausas.length; i++){
+                                causas += '-' + listCausas[i] + '\n';
+                              }
+
+                              recomendaciones = motor.actual['recomendacion'];
+
+
                               Future.delayed(
                                 Duration(milliseconds: 200),
                                 () => Navigator.pushReplacement(
                                   context, 
                                   MaterialPageRoute(
-                                    builder: (context) => Result(),
+                                    builder: (context) => Result(
+                                      diagnostico: diagnostico,
+                                      causas: causas,
+                                      recomendaciones: recomendaciones,
+                                    ),
                                   ),
                                 )
                               );
                               return;
                             }
+                            else{
+                              setState(() {
+                                bool petateo = _dataList.length > 2;
+                                if(petateo)
+                                  motor.actual = motor.actual['opciones'][0];
+                                _question = '¿' + motor.actual['texto'] + '?';
+                                //Map<String, dynamic> diosMio = motor.actual['opciones'];
+                                var diosMio = motor.actual['opciones'];
+                                print(diosMio);
+                                _dataList = [];
+                                for(int i = 0; i < diosMio.length; i++){
+                                  _dataList.add(diosMio[i]['res']);
+                                }
 
+                                
+                                /*_question = '¿Cualquier otra pregunta?';
+                                _dataList = ['Opcion 1', 'Opcion 2', 'Opcion 3'];*/
+                                _selectedIndex = -1;
+                                index = -1;
 
-                            setState(() {
-                              _question = '¿Cualquier otra pregunta?';
-                              _dataList = ['Opcion 1', 'Opcion 2', 'Opcion 3'];
-                              _selectedIndex = -1;
-                              index = -1;
-                            });
+                                
+                              });
+                            }
+                            
                           }
                         );
                       }),

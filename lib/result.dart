@@ -2,14 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:piranhias/home_page.dart';
 
 class Result extends StatefulWidget {
+  Result({Key key, @required this.diagnostico, @required this.causas, @required this.recomendaciones}) : super(key: key);
+
+  final String diagnostico;
+  final String causas;
+  final String recomendaciones;
+
   @override
   _ResultState createState() => _ResultState();
 }
 
 class _ResultState extends State<Result> {
+
+  String _diagnostico;
+  String _causas;
+  String _recomendaciones;
+
+
   @override
   void initState() {
     super.initState();
+    _diagnostico = widget.diagnostico;
+    _causas = widget.causas;
+    _recomendaciones = widget.recomendaciones;
   }
 
   void goHome() {
@@ -58,7 +73,7 @@ class _ResultState extends State<Result> {
                 padding: EdgeInsets.all(5),
                 margin: EdgeInsets.only(top: 10),
                 child: Text(
-                  'Tu planta sufre porque: ' + 'Lorem Ipsum Dolor Sit Amet',
+                  'Tu planta sufre porque: ' + _diagnostico,
                   style: Theme.of(context).textTheme.headline6,
                 ),
               )
@@ -91,7 +106,8 @@ class _ResultState extends State<Result> {
                       margin: EdgeInsets.symmetric(vertical: 15),
                       padding: EdgeInsets.only(left: 15.0),
                       child: Text(
-                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu elit efficitur lorem tincidunt varius id sit amet velit. Nullam a metus ut arcu malesuada molestie. Vivamus posuere vel sapien quis ullamcorper. Quisque consequat ipsum sed molestie vulputate. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+                        //'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu elit efficitur lorem tincidunt varius id sit amet velit. Nullam a metus ut arcu malesuada molestie. Vivamus posuere vel sapien quis ullamcorper. Quisque consequat ipsum sed molestie vulputate. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+                        _causas,
                         style: Theme.of(context).textTheme.headline6,
                       ),
                     ),
@@ -104,7 +120,8 @@ class _ResultState extends State<Result> {
                       margin: EdgeInsets.only(top: 15.0),
                       padding: EdgeInsets.only(left: 15.0),
                       child: Text(
-                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu elit efficitur lorem tincidunt varius id sit amet velit. Nullam a metus ut arcu malesuada molestie. Vivamus posuere vel sapien quis ullamcorper. Quisque consequat ipsum sed molestie vulputate. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+                        //'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu elit efficitur lorem tincidunt varius id sit amet velit. Nullam a metus ut arcu malesuada molestie. Vivamus posuere vel sapien quis ullamcorper. Quisque consequat ipsum sed molestie vulputate. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+                        _recomendaciones,
                         style: Theme.of(context).textTheme.headline6,
                       ),
                     ),

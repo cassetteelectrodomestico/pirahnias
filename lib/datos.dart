@@ -304,7 +304,7 @@ class Motor {
   }
 
   void obtenerNuevoAcual(res) {
-    if (actual.containsKey('res')) {
+    if (res == 'si' || res == 'no') {
       if (res == 'si') historial.add(actual['texto']);
       if (actual['opciones'][0]['res'] == res)
         actual = actual['opciones'][0];

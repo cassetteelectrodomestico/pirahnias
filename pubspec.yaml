@@ -45,9 +45,45 @@ flutter:
   uses-material-design: true
 
   assets:
+    - assets/01.png
+    - assets/dionea_cafe.png
+    - assets/dionea_caidas.png
+    - assets/dionea_hojas.png
+    - assets/dionea_insectos.png
+    - assets/dionea_seca.png
+    - assets/dionea_temperatura.png
+    - assets/drosera_amarillas.png
+    - assets/drosera_mucilago.png
+    - assets/drosera_tallos.png
+    - assets/drosera_trampa.png
+    - assets/drosera_transparente.png
+    - assets/gen_abono.png
+    - assets/gen_tierra.png
+    - assets/gen_tipos.png
+    - assets/nep_calor.png
+    - assets/nep_frio.png
+    - assets/nep_jarros.png
+    - assets/nep_sinjarros.png
+    - assets/nep_verdes.png
     - assets/pirahna.png
     - assets/prueba1.jpg
-    - assets/01.png
+    - assets/res_agua.png
+    - assets/res_bien.png
+    - assets/res_congela.png
+    - assets/res_excesoagua.png
+    - assets/res_florear.png
+    - assets/res_golpecalor.png
+    - assets/res_hibernacion.png
+    - assets/res_hongos.png
+    - assets/res_humedad.png
+    - assets/res_luz.png
+    - assets/res_luzhumedad.png
+    - assets/res_polvoblanco.png
+    - assets/res_raizquemada.png
+    - assets/res_regar.png
+    - assets/res_riego.png
+    - assets/res_sobre.png
+    - assets/res_tierra.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
