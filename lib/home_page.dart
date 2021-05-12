@@ -42,9 +42,9 @@ class _HomePageState extends State<HomePage> {
         context, 
         MaterialPageRoute(
           builder: (context) => SimpleQuestion(
-            question: '¿Cambiaste la tierra de tu planta?', 
+            /*question: '¿Cambiaste la tierra de tu planta?', 
             dataList: ['Si', 'No'],
-            imageURL: '01.png',
+            imageURL: '01.png',*/
           )
         ),
       )

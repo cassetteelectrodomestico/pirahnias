@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:piranhias/create_material_color.dart';
 import 'package:piranhias/home_page.dart';
 import 'package:piranhias/result.dart';
+import 'package:piranhias/datos.dart';
 
 class SimpleQuestion extends StatefulWidget{
-  SimpleQuestion({Key key, @required this.question, @required this.dataList, @required this.imageURL}) : super(key: key);
+  SimpleQuestion({Key key,}) : super(key: key);
 
-  final String question;
+  /*final String question;
   final List<String> dataList;
-  final String imageURL;
+  final String imageURL;*/
 
   @override
   _SimpleQuestionState createState() => _SimpleQuestionState();
@@ -21,12 +22,34 @@ class _SimpleQuestionState extends State<SimpleQuestion>{
   String _imageURL;
   int _selectedIndex = -1;
 
+  Motor motor;
+
   @override
   void initState(){
     super.initState();
-    _question = widget.question;
+    /*_question = widget.question;
     _dataList = widget.dataList;
-    _imageURL = widget.imageURL;
+    _imageURL = widget.imageURL;*/
+    motor = Motor();
+
+
+    _imageURL = "01.png";
+    _question = '¿' + motor.actual['texto'] + '?';
+
+
+
+    //Map<String, dynamic> diosMio = motor.actual['opciones'];
+    var diosMio = motor.actual['opciones'];
+
+    print(diosMio);
+
+    _dataList = [];
+
+    for(int i = 0; i < diosMio.length; i++){
+      _dataList.add(diosMio[i]['res']);
+    }
+
+    
   }
 
   
