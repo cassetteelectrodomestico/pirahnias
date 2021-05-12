@@ -61,8 +61,9 @@ class Motor {
                 "texto": "¿Que planta es?",
                 "opciones": [
                   {
-                    "texto": "Drosera",
-                    "opciones": [
+                    "res":"Drosera",
+                    "texto":"Drosera",
+                    "opciones":[
                       {
                         "res": "si",
                         "texto": "Tiene las hojas o tallos muy alargados",
@@ -132,8 +133,9 @@ class Motor {
                     ]
                   },
                   {
-                    "texto": "Dionea",
-                    "opciones": [
+                    "res":"Dionea",
+                    "texto":"Dionea",
+                    "opciones":[
                       {
                         "res": "si",
                         "texto": "Planta muy verde o hojas alargadas",
@@ -213,8 +215,9 @@ class Motor {
                     ]
                   },
                   {
-                    "texto": "Nepenthes",
-                    "opciones": [
+                    "res":"Nepenthes",
+                    "texto":"Nepenthes",
+                    "opciones":[
                       {
                         "res": "si",
                         "texto": "Hace frio y no esta protegida",
