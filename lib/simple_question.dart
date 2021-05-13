@@ -31,14 +31,16 @@ class _SimpleQuestionState extends State<SimpleQuestion>{
     _dataList = widget.dataList;
     _imageURL = widget.imageURL;*/
     motor = Motor();
-
-    _imageURL = "01.png";
+    if(motor.actual.containsKey('imageURL')){
+       _imageURL = motor.actual['imageURL'];
+    }else{
+      _imageURL = "01.png";
+    }
+    print( motor.actual);
     _question = '¿' + motor.actual['texto'] + '?';
 
     //Map<String, dynamic> diosMio = motor.actual['opciones'];
     var diosMio = motor.actual['opciones'];
-
-    print(diosMio);
 
     _dataList = [];
 
@@ -46,10 +48,7 @@ class _SimpleQuestionState extends State<SimpleQuestion>{
       _dataList.add(diosMio[i]['res']);
     }
 
-    
   }
-
-  
 
   @override
   Widget build(BuildContext context){
@@ -121,9 +120,9 @@ class _SimpleQuestionState extends State<SimpleQuestion>{
                           (index) {
                             motor.obtenerNuevoAcual(_dataList.elementAt(_selectedIndex));
                             if(motor.queEs() == 'respuesta'){
-                              String diagnostico, causas = '', recomendaciones;
+                              String diagnostico, causas = '', recomendaciones,imageURL;
                               diagnostico = motor.actual['texto'];
-
+                              imageURL = motor.actual['imageURL'];
                               var listCausas = motor.historial;
 
                               for(int i = 0; i < listCausas.length; i++){
@@ -131,7 +130,6 @@ class _SimpleQuestionState extends State<SimpleQuestion>{
                               }
 
                               recomendaciones = motor.actual['recomendacion'];
-
 
                               Future.delayed(
                                 Duration(milliseconds: 200),
@@ -142,6 +140,7 @@ class _SimpleQuestionState extends State<SimpleQuestion>{
                                       diagnostico: diagnostico,
                                       causas: causas,
                                       recomendaciones: recomendaciones,
+                                      imageURL: imageURL,
                                     ),
                                   ),
                                 )
@@ -154,21 +153,19 @@ class _SimpleQuestionState extends State<SimpleQuestion>{
                                 if(petateo)
                                   motor.actual = motor.actual['opciones'][0];
                                 _question = '¿' + motor.actual['texto'] + '?';
+                                _imageURL = motor.actual['imageURL'];
                                 //Map<String, dynamic> diosMio = motor.actual['opciones'];
                                 var diosMio = motor.actual['opciones'];
-                                print(diosMio);
                                 _dataList = [];
                                 for(int i = 0; i < diosMio.length; i++){
                                   _dataList.add(diosMio[i]['res']);
                                 }
 
-                                
                                 /*_question = '¿Cualquier otra pregunta?';
                                 _dataList = ['Opcion 1', 'Opcion 2', 'Opcion 3'];*/
                                 _selectedIndex = -1;
                                 index = -1;
 
-                                
                               });
                             }
                             

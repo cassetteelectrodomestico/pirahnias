@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:piranhias/home_page.dart';
 
 class Result extends StatefulWidget {
-  Result({Key key, @required this.diagnostico, @required this.causas, @required this.recomendaciones}) : super(key: key);
+  Result({Key key, @required this.diagnostico, @required this.causas, @required this.recomendaciones,@required this.imageURL}) : super(key: key);
 
   final String diagnostico;
   final String causas;
   final String recomendaciones;
+  final String imageURL;
 
   @override
   _ResultState createState() => _ResultState();
@@ -17,6 +18,7 @@ class _ResultState extends State<Result> {
   String _diagnostico;
   String _causas;
   String _recomendaciones;
+  String _imageURL;
 
 
   @override
@@ -25,6 +27,7 @@ class _ResultState extends State<Result> {
     _diagnostico = widget.diagnostico;
     _causas = widget.causas;
     _recomendaciones = widget.recomendaciones;
+    _imageURL = widget.imageURL;
   }
 
   void goHome() {
@@ -82,7 +85,7 @@ class _ResultState extends State<Result> {
               flex: 5,
               child: Container(
                 child: Image(
-                  image: AssetImage("assets/prueba1.jpg"),
+                  image: AssetImage("assets/"+_imageURL),
                 ),
               ),
             ),
